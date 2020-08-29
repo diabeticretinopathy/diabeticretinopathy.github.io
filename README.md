@@ -1,9 +1,4 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Home: DiabeticRetinopathy</title>
-</head>
 <body>
 	<h2>FPGA-based Diabetic Retinopathy Detection and Classification using Deep Convolutional Neural Network</h2>
 			<h4>Content</h4>
