@@ -1,3 +1,13 @@
+header{
+	text-align: center;
+	background-color: #0a0504;
+}
+body{
+	background-color: #ffe4e2;
+}
+footer{
+	background-color: #0a0504;
+}
 h1{
 	color: white;
 	background-color: #2b1414;
