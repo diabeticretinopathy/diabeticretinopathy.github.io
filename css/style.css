@@ -7,7 +7,6 @@ body{
 }
 footer{
 	color:#543d3d;
-	text-indent: 5%;
 	background-color: #0a0504;
 }
 h1{
@@ -19,7 +18,7 @@ p{
 	text-align: justify;
 	font-family: arial;
 }
-h2, h3, h4, h5, h6, li, span{
+h2, h3, h4, h5, h6, li{
 	font-family: arial;
 }
 h5{
@@ -47,4 +46,5 @@ i{
 #footersection1, #footersection2, #footersection3{
 	width: 350px;
 	display: inline-block;
+	text-indent: 5%;
 }
