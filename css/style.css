@@ -3,11 +3,15 @@ html{
 }
 body{
 	margin-left: 3%;
-	margin-right: 3%;
+	margin-right: 3%; 
+	background-image: url("bgimg/cover.png");
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 .header-container{
 	font-family: calibri, arial;
 	color: black;
+	opacity: 95%;
 	padding: 40px 0px;
 	text-align: center;
 	background-color: #c3c3c3;
@@ -18,6 +22,7 @@ body{
 }
 .header-container:hover{
 	background-color: #d4d4d4;
+	opacity: 75%;
 }
 .nav-container{
 	clear: both;
@@ -55,7 +60,6 @@ body{
 #MID-logo{
 	background-color: white;
 	color: black;
-	font-style: italic;
 	font-weight: bold;
 	font-size: 130%;
 	padding-right: 20px;
@@ -69,7 +73,7 @@ body{
 .content-container{
 	clear: both;
 	font-family: calibri, arial;
-	border: solid;
+	border: solid 2px;
 	border-radius: 10px;
 	margin-top: 40px;
 	border-color: white;
@@ -78,6 +82,10 @@ body{
 	text-align: justify;
 	padding: 0px 20px;
 	display: inline-block;
+}
+.content-container p: hover{
+	background-color: white;
+	opacity: 75%;
 }
 .content-container .section-container h2{
 	margin-bottom: 10px;
@@ -107,6 +115,7 @@ body{
 }
 .aside-container:hover{
 	background-color: #d4d4d4;
+	opacity: 75%;
 }
 .footer-container .footersection{
 	display: inline-block;
@@ -128,6 +137,7 @@ body{
 }
 .footer-container:hover{
 	background-color: #d4d4d4;
+	opacity: 75%;	
 }
 .footersection a, p{
 	margin-right: 5px;
@@ -178,4 +188,77 @@ div{
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
+/* for About page*/
+.nav-container .about{
+	box-shadow: 0px 0px 10px black;
+	background-color: white;
+	color: #000000;
+	border: solid;
+	padding-top: 10px;
+	border-color: white;
+	border-radius: 10px;
+}
+.nav-container .about:hover{
+	background-color: #c3c3c3;
+	color: black;
+}
+/* for Home page*/
+.nav-container .index{
+	box-shadow: 0px 4px 7px #47d2cb40;
+	background-color: white;
+	color: #000000;
+	border: solid;
+	padding-top: 10px;
+	border-color: white;
+	border-radius: 10px;
+}
+.nav-container .index:hover{
+	background-color: #c3c3c3;
+	color: black;
+}
+/*for Publish page*/
+.nav-container .publish{
+	box-shadow: 0px 0px 10px black;
+	background-color: white;
+	color: #000000;
+	border: solid;
+	padding-top: 10px;
+	border-color: white;
+	border-radius: 10px;
+}
+.nav-container .publish:hover{
+	background-color: #c3c3c3;
+	color: black;
+}
+/*for Paper page*/
+.nav-container .paper{
+	box-shadow: 0px 0px 10px black;
+	background-color: white;
+	color: #000000;
+	border: solid;
+	padding-top: 10px;
+	border-color: white;
+	border-radius: 10px;
+}
+.nav-container .paper:hover{
+	background-color: #c3c3c3;
+	color: black;
+}
+/*for Diagnosis page*/
+.nav-container .diagnosis{
+	box-shadow: 0px 0px 10px black;
+	background-color: white;
+	color: #000000;
+	border: solid;
+	padding-top: 10px;
+	border-color: white;
+	border-radius: 10px;
+}
+.nav-container .diagnosis:hover{
+	background-color: #c3c3c3;
+	color: black;
+}
+
+
+
 
