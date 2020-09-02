@@ -2,27 +2,34 @@ html{
 	scroll-behavior: smooth;
 }
 body{
-	margin-left: 3%;
-	margin-right: 3%; 
+	/*margin-left: 3%;
+	margin-right: 3%; */
+	background-color: #faf6f1;
 	background-image: url("bgimg/cover.png");
 	background-size: cover;
 	background-repeat: no-repeat;
+	background-position: -97% 0%;
 }
 .header-container{
+	box-shadow: 0px 0px 10px black;
+	background-color: #c3c3c3;
 	font-family: calibri, arial;
 	color: black;
-	opacity: 95%;
 	padding: 40px 0px;
 	text-align: center;
-	background-color: #c3c3c3;
+	background-image: url("bgimg/default.svg");
 	border:solid;
 	border-radius: 10px;
 	border-color: #06032b;
 	margin-bottom: 2px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	min-height: 543px;
+	background-position: 0% 46%;
 }
 .header-container:hover{
 	background-color: #d4d4d4;
-	opacity: 75%;
+	opacity: 95%;
 }
 .nav-container{
 	clear: both;
@@ -47,6 +54,7 @@ body{
 	text-align: center;
 }
 .nav-container a:hover{
+	font-weight: bold;
 	background-color: #000000;
 	border: solid 0px;
 	border-color: #06032b;
@@ -54,7 +62,7 @@ body{
 	padding: 20px 5px;
 	color: #ffffff;
 	margin: 0px 15px;
-	font-size: 110%;
+	font-size: 115%;
 	text-align: center; 
 }
 #MID-logo{
@@ -79,7 +87,6 @@ body{
 	border-color: white;
 	box-shadow: 0px 0px 10px #000000;
 	width: 70%;
-	text-align: justify;
 	padding: 0px 20px;
 	display: inline-block;
 }
@@ -104,18 +111,22 @@ body{
 	box-shadow: 0px 2px 8px #c4c4c4;
 	width: 20%;
 	text-align: left;
-	padding: 0px 20px;
 	float: right;
 	overflow-y: scroll;
 	position: sticky;
 	top: 117px;
 	display: block;
 	max-height: 375px;
-	margin-bottom: 94px;
+	margin-bottom: 2%;
+	overflow: auto;
+	opacity: 95%;
 }
 .aside-container:hover{
 	background-color: #d4d4d4;
-	opacity: 75%;
+	opacity: 85%;
+}
+.aside-container aside{
+	
 }
 .footer-container .footersection{
 	display: inline-block;
@@ -197,10 +208,12 @@ div{
 	padding-top: 10px;
 	border-color: white;
 	border-radius: 10px;
+	font-weight: bold;
 }
 .nav-container .about:hover{
 	background-color: #c3c3c3;
 	color: black;
+	font-weight: bold;
 }
 /* for Home page*/
 .nav-container .index{
@@ -211,10 +224,12 @@ div{
 	padding-top: 10px;
 	border-color: white;
 	border-radius: 10px;
+	font-weight: bold;
 }
 .nav-container .index:hover{
 	background-color: #c3c3c3;
 	color: black;
+	font-weight: bold;
 }
 /*for Publish page*/
 .nav-container .publish{
@@ -229,6 +244,7 @@ div{
 .nav-container .publish:hover{
 	background-color: #c3c3c3;
 	color: black;
+	font-weight: bold;
 }
 /*for Paper page*/
 .nav-container .paper{
@@ -239,10 +255,12 @@ div{
 	padding-top: 10px;
 	border-color: white;
 	border-radius: 10px;
+	font-weight: bold;
 }
 .nav-container .paper:hover{
 	background-color: #c3c3c3;
 	color: black;
+	font-weight: bold;
 }
 /*for Diagnosis page*/
 .nav-container .diagnosis{
@@ -253,10 +271,12 @@ div{
 	padding-top: 10px;
 	border-color: white;
 	border-radius: 10px;
+	font-weight: bold;
 }
 .nav-container .diagnosis:hover{
 	background-color: #c3c3c3;
 	color: black;
+	font-weight: bold;
 }
 
 
