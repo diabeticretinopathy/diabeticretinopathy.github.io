@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>MID: About</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<div class="header-container">
+	  	<header>
+	  		<h1>Medical image Diagnosis</h1>
+	  	</header>
+	</div>
+	<div class="nav-container">
+		<nav>
+			<a id="MID-logo" href="index.html">MID</a>
+			<a href="diagnosis.html">Diagnostic Lab</a>
+			<a href="paperindex.html">Papers</a>
+			<a href="publish.html">Publish</a>
+			<a href="about.html">About</a>
+		</nav>
+	</div>
+	<div class="content-container">
+		<h2>FPGA-based Diabetic Retinopathy Detection and Classification using Deep Convolutional Neural Network</h2>
+		<main>
+		  	<div class="section-container">
+				<section>
+					<h3>Content</h3>
+					<ul>
+						<li><a href="#Abstract">Abstract</a></li>
+						<li><a href="#ModelDefinition">Model Definition</a></li>
+						<li><a href="#DiabeticRetinopathyClassification">Diabetic Retinopathy Classification</a></li>
+						<li><a href="#HardwareDesignFlow">Hardware Design Flow</a></li>
+					</ul>
+					<hr>
+				</section>
+		  	</div>
+			<div class="section-container">
+				<section>
+					<h3 id = "Abstract">Abstract</h3>
+					<p>Diabetic Retinopathy is a disease which is one of the leading causes for blindness among adults. There are around 93 million people worldwide affected by this disease. This disease causes blood vessel constriction in the eye which results in blood leakage along with proteins and lipids which then gets accumulated in the eye. The goal of this project is to design a Deep Neural Network model that can detect the disease and classify its stages using the retinal images of the eye as input. The model then performs different image processing and preprocessing techniques to extract the ROI (Region of Interest) and compute the output i.e. classify the stage. This uses Convolutional Neural Network for the feature extraction followed by an activation function and depending on the accuracy requirement there may be some other layers required for optimizing the computational performance of the Neural Network. The data is then fed into a classifier stage which involves Fully Connected layers for classification of the disease. For model training, there already exists datasets which contains retinal images (Fundus images) ranging from normal healthy eye to different stages of the disease. After designing and optimizing the model and training it with datasets, we will implement this model on FPGA. The reason for this is because FPGA are flexible i.e. reconfigurable (both partially, completely and dynamically) and is very power efficient. It has low latency and the ability to perform parallel computations which is suitable for real time inference. As the conventional methods for the disease detection take longer time ranging from days to weeks, making this model portable and faster efficiently reduces the diagnostic time. For this reason, we chose FPGA over traditional CPUs and GPUs.       
+					</p>
+				</section>
+			</div>
+			<div class="section-container">
+				<section>
+					<h3 id = "ModelDefinition">Model Definition</h3>
+					<p>For the main model design, Convolutional Neural Network is preferred as it works really well for image classification and feature extraction. We will use multiple layers of 2D-Convolution followed by activation function (possibly ReLU) and then Pooling layer (possibly Max Pooling) (may even include Batch Normalization) until the last layer of the convolution which is then followed by a Fully connected layer or Dense layer. Then after each neuron there will be an activation function (possibly ReLU) and it may also include dropout layer. Then the last layer is fed through a Softmax function to predict our output. During the training, we will use learning algorithms such as Stochastic Gradient Descent (SGD) and with regularization to produce the optimal values of weight and to reduce overfitting. We may also need to perform hyperparameter tuning such as the properties of the convolutional layers and parameters such as learning rate in order to further optimize our model. The final Deep Convolutional Neural Network architecture will be decided after experimenting with different structures and architectures based on the final accuracy, and performance measures of the Network.
+					</p>
+				</section>
+			</div>
+			<div class="section-container">
+				<section>
+					<h3 id="DiabeticRetinopathyClassification">Diabetic Retinopathy Classification</h3>
+					<p>DR is classified into 5 categories i.e. ranging from stage 0 to stage 4.
+					</p>
+					<h4>Stage 0: No DR</h4>
+						<figure>
+							<img src="Images/NoDR.png" width= "250" alt="Normal Diabetic Retinopathy Image"><figcaption>Figure: 1</figcaption>
+						</figure>
+						<div>No sign of any abnormalities such as MA (Micro-Aneurysm).</div>
+					<h4>Stage 1: Mild Non-Proliferative DR</h4>
+						<figure>
+							<img src="Images/MildDR.png" width="250" alt="Mild Non-Proliferative Diabetic Retinopathy Image"><figcaption>Figure: 2</figcaption>
+						</figure>
+						<div>Classified by the existence of only MA (Micro-Aneurysm). MA are small blood patches or pockets that are created due to leakage in the blood vessel, but this is not a hemorrhage.</div>
+					<h4>Stage 2: Moderate Non-Proliferative DR</h4>
+						<figure>
+							<img src="Images/ModerateDR.png" width="250" alt="Moderate Non-Proliferative Diabetic Retinopathy Image"><figcaption>Figure: 3</figcaption>
+						</figure>
+						<div>This is classified by existence of Exudates (Yellow color) such as Hard Exudates (HE) (Bright yellow) and Soft Exudates (SE) (Yellowish) also known as Cotton Wool Spots. If these exudates exist, then Micro-Aneurysm also exists as these are the fats and lipids which leaked through the blood vessels.</div>
+					<h4>Stage 3: Severe Non-Proliferative DR</h4>
+						<figure>
+							<img src="Images/SevereDR.png" width="250" alt="Severe Non-Proliferative Diabetic Retinopathy Image"><figcaption>Figure: 4</figcaption>
+						</figure>
+						<div>May include all the moderate DR characteristics but in higher amount or covers at least more than 3 quadrants. This is also characterized by Dot Blood Hemorrhage (i.e. in the small box at the top right corner). There may also be Venous bleeding and Intraretinal Microvascular Abnormality (IRMA) (which is shown in the three boxes at top left corner).</div>
+					<h4>Stage 4: Proliferative DR (PDR)</h4>
+						<figure>
+							<img src="Images/PDR.png" width="250" alt="Proliferative Diabetic Retinopathy"><figcaption>Figure: 5</figcaption>
+						</figure>
+						<div>The term proliferative and non-proliferative is mainly defined by the existence of Neo-Vascularization at the Optic Disc (OD) location i.e. new formation of blood vessels which is shown in the right box. Along with other Severe DR characteristics which is also highlighted with the boxes above in the left.</div>
+				</section>
+			</div>
+			<div class="section-container">
+				<section>
+					<h3 id="HardwareDesignFlow">Hardware Design Flow</h3>
+					<p>For hardware implementation, we start by producing a high-level code for the model in an HLS (High level synthesis) software. Our focus is to use the VIVADO HLS software for this application. At this stage we assume the training is done so we have obtained our values for weights and biases.In the HLS, we will redesign the model in C, C++ language but this time will parametrize our model i.e. we will pass the updated weights and biases into the model in HLS. We will have to manually rewrite all the inferencing steps of the neural network. For verification, we can verify it using the previous test and validation results which were obtained in the training stage. The HLS comes with a number of pragma directives which allow the user to guide the HLS Compiler as to how to generate the desired design. Due to some hardware limitations, we may need to provide it with specific HLS construct in order to improve the latency and reduce the Block Memory (BRAM) count along with other blocks counts such as DSP, FF, LUT etc. The initial C/C++ uses float data type for the parameters which greatly utilized the hardware resources. So instead of floating-point type, we have to use fixed-point data type. Fixed-point data types are less precise, but they are way faster and require lesser resources. The size of the fixed-point datatypes has to be adjusted during the optimization step in order to fully encompass all the range of values for the weights and biases.
+					</p>
+					<p>Loop unrolling and pipelining can be performed by using the pragma directives. In loop unrolling, we copy the loop code N times where the N is the number of iterations in the loop. Then in loop pipelining, we use the pipeline directive which adds a pipeline register for each loop hence in times increases the overall throughput but may initially increase propagation delay because our loop will mostly execute in parallel.Now we have three main functions in the C/C++ code i.e. 2D-convolution function, pooling function, and fully connected/dense layer function. As due to loop pipelining, these functions are already heavily parallelized but still they are called sequentially i.e. first 2D-convolution then pooling etc. As in CNN, we do not need all the previous layer data for computing the output for the next layer, hence we can further improve our throughput by also parallelizing the execution of these functions.
+					</p>
+					<p>For image related operations such as image read can be done using the open CV library. Xilinx Vivado Design Suite also comes with its built-in open CV library for video and image processing operations. We need to create the neural network function as the Top-Level Function. Then in the test bench that function will be called, and the image will be acquired using the open CV library and sent as an input to the Top-Level Function. The weights will also be sent as an input to the Top-Level Function as previously said that the function will be parametrized for inferencing. The values for weight may be stored as a matrix or vector form which then can be loaded into Vivado HLS.After creating the Top-Level Function and test bench file, we will then the compile and simulate the code after which the code will be then synthesized into an IP block. We will then make sure that the Block counts satisfies the hardware specification and resources.
+					</p>
+				</section>
+			</div>
+		</main>
+	</div>
+	<div class="aside-container">
+		<aside>
+			<ul>
+				<li>Publish a paper</li>
+				<li>View a paper</li>
+				<li>Test the online Diagnosis System</li>
+				<li>Publish a paper</li>
+				<li>View a paper</li>
+				<li>Test the online Diagnosis System</li>
+				<li>Publish a paper</li>
+				<li>View a paper</li>
+				<li>Test the online Diagnosis System</li>
+				<li>Publish a paper</li>
+				<li>View a paper</li>
+				<li>Test the online Diagnosis System</li>
+				<li>Publish a paper</li>
+				<li>View a paper</li>
+				<li>Test the online Diagnosis System</li>
+				<li>Publish a paper</li>
+				<li>View a paper</li>
+				<li>Test the online Diagnosis System</li>
+				<li>Publish a paper</li>
+				<li>View a paper</li>
+				<li>Test the online Diagnosis System</li>
+				<li>Publish a paper</li>
+				<li>View a paper</li>
+				<li>Test the online Diagnosis System</li>
+				<li>Publish a paper</li>
+				<li>View a paper</li>
+				<li>Test the online Diagnosis System</li>
+			</ul>
+		</aside>
+	</div>
+	<div class="footer-container">
+		<footer>
+			<h3>More about us</h3>
+			<section class = "footersection">
+				<h4>Mohammad Asim Contact Info</h4>
+				<a class = "footeranchor" href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_top_card%3BT0fqMk5xTluzrhe0uMZcZA%3D%3D" target="_Blank"><p><i class="fa fa-linkedin" style="font-size:20px;"></i></p></a>
+				<p><i class="fa fa-envelope" style="font-size:20px;"></i> asim.98.12.26@gmail.com</p>
+			</section>
+			<section class = "footersection">
+				<h4>Bilal Farooq Contact Info</h4>
+				<a class = "footeranchor" href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_top_card%3BT0fqMk5xTluzrhe0uMZcZA%3D%3D" target="_Blank"><p><i class="fa fa-linkedin" style="font-size:20px;"></i></p></a>
+				<p><i class="fa fa-envelope" style="font-size:20px;"></i> asim.98.12.26@gmail.com</p>
+			</section>
+			<section class = "footersection">
+				<h4>Ahmad Humayun Contact Info</h4>
+				<a class = "footeranchor" href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_top_card%3BT0fqMk5xTluzrhe0uMZcZA%3D%3D" target="_Blank"><p><i class="fa fa-linkedin" style="font-size:20px;"></i></p></a>
+				<p><i class="fa fa-envelope" style="font-size:20px;"></i> asim.98.12.26@gmail.com</p>
+			</section>
+		</footer>
+	</div>
+</body>
+</html>
